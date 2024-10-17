@@ -14,4 +14,8 @@ import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 abstract class NoteDatabase: RoomDatabase() {
     abstract val noteDao: NoteDao // This gives us access to NoteDao, which has the commands
                             // to add, delete, or get notes from the database.
+
+    companion object {
+        const val DATABASE_NAME = "notes_db"
+    }
 }
