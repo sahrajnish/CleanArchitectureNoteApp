@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.plcoding.cleanarchitecturenoteapp"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -20,6 +20,8 @@ android {
             useSupportLibrary true
         }
     }
+
+    namespace "com.plcoding.cleanarchitecturenoteapp"
 
     buildTypes {
         release {
@@ -33,7 +35,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        useIR = true
+        //useIR = true
     }
     buildFeatures {
         compose true
