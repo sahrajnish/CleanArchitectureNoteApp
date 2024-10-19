@@ -9,7 +9,7 @@ class NoteRepositoryImp(
     private val dao: NoteDao
 ) : NoteRepository {
 
-    override fun getNote(): Flow<List<Note>> {
+    override fun getNotes(): Flow<List<Note>> {
         return dao.getNotes()
     }
 

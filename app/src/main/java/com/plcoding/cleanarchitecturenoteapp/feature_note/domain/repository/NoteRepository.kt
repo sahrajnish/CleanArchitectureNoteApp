@@ -4,7 +4,7 @@ import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
-    fun getNote(): Flow<List<Note>>
+    fun getNotes(): Flow<List<Note>>
 
     suspend fun getNoteById(id: Int): Note?
 
