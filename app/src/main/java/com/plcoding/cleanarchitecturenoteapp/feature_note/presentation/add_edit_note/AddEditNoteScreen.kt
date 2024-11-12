@@ -89,11 +89,12 @@ fun AddEditNoteScreen(
             }
         },
         scaffoldState = scaffoldState
-    ) {
+    ) {paddingValue ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(noteBackgroundAnimatable.value)
+                .padding(paddingValue)
                 .padding(16.dp)
         ) {
             Row(
@@ -114,7 +115,8 @@ fun AddEditNoteScreen(
                                 width = 3.dp,
                                 color = if(viewModel.noteColor.value == colorInt) {
                                     Color.Black
-                                } else Color.Transparent
+                                } else Color.Transparent,
+                                shape = CircleShape
                             )
                             .clickable {
                                 scope.launch {
@@ -130,35 +132,60 @@ fun AddEditNoteScreen(
                     )
                 }
             }
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Box(
+                modifier = Modifier
+                    .border(
+                        width = 3.dp,
+                        color = Color.Black
+                    )
+                    .background(color = Color.White)
+                    .fillMaxWidth()
+                    .padding(12.dp)
+            ) {
+                TransparentHintTextField(
+                    text = titleState.text,
+                    hint = titleState.hint,
+                    onValueChange = {
+                        viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
+                    },
+                    onFocusChange = {
+                        viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))
+                    },
+                    isHintVisible = titleState.isHintVisible,
+                    singleLine = true,
+                    textStyle = MaterialTheme.typography.h5,
+                    modifier = Modifier
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Box(
+                modifier = Modifier
+                    .border(
+                        width = 3.dp,
+                        color = Color.Black
+                    )
+                    .background(color = Color.White)
+                    .fillMaxWidth()
+                    .padding(12.dp)
+            ) {
+                TransparentHintTextField(
+                    text = contentState.text,
+                    hint = contentState.hint,
+                    onValueChange = {
+                        viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
+                    },
+                    onFocusChange = {
+                        viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
+                    },
+                    isHintVisible = contentState.isHintVisible,
+                    textStyle = MaterialTheme.typography.body2
+                )
+            }
+
         }
-        Spacer(modifier = Modifier.height(16.dp))
-
-        TransparentHintTextField(
-            text = titleState.text,
-            hint = titleState.hint,
-            onValueChange = {
-                viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
-            },
-            onFocusChange = {
-                viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))
-            },
-            isHintVisible = titleState.isHintVisible,
-            singleLine = true,
-            textStyle = MaterialTheme.typography.h5
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-
-        TransparentHintTextField(
-            text = contentState.text,
-            hint = contentState.hint,
-            onValueChange = {
-                viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
-            },
-            onFocusChange = {
-                viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
-            },
-            isHintVisible = contentState.isHintVisible,
-            textStyle = MaterialTheme.typography.body2
-        )
     }
 }

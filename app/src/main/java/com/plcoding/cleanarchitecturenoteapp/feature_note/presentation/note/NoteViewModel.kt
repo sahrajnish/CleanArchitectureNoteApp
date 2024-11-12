@@ -1,11 +1,9 @@
 package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.note
 
-import android.view.View
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.NoteOrder

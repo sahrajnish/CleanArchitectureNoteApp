@@ -1,6 +1,5 @@
 package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.note.components
 
-import android.widget.Space
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.recyclerview.widget.RecyclerView.ItemAnimator.AdapterChanges
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.NoteOrder
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.OrderType
 
@@ -54,14 +52,14 @@ fun OrderSection(
             DefaultRadioButton(
                 text = "Ascending",
                 selected = noteOrder.orderType is OrderType.Ascending,
-                onSelect = { noteOrder.copy(OrderType.Ascending) }
+                onSelect = { onOrderChanges(noteOrder.copy(OrderType.Ascending)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
 
             DefaultRadioButton(
                 text = "Descending",
                 selected = noteOrder.orderType is OrderType.Descending,
-                onSelect = { noteOrder.copy(OrderType.Descending) }
+                onSelect = { onOrderChanges(noteOrder.copy(OrderType.Descending)) }
             )
         }
 
