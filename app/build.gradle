@@ -5,8 +5,10 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+// update all the Sdk to its latest version.
+
 android {
-    compileSdk 31
+    compileSdk 31 
 
     defaultConfig {
         applicationId "com.plcoding.cleanarchitecturenoteapp"
@@ -52,6 +54,8 @@ android {
 }
 
 dependencies {
+
+    //update all the dependencies to their latest versions.
 
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
