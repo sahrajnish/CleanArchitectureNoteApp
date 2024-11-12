@@ -10,13 +10,13 @@ import com.plcoding.cleanarchitecturenoteapp.ui.theme.Violet
 
 //  The @Entity annotation is applied to a data class to indicate that the...
 //  class represents a table in a Room database.
-@Entity
+@Entity(tableName = "note")
 data class Note(
     val title: String,
     val content: String,
     val timestamp: Long,
     val color: Int,
-    @PrimaryKey val id: Int? = null
+    @PrimaryKey(autoGenerate = true) val id: Int? = null
 ) {
     companion object {
         // This is a companion object, which allows us to define things that belong to the class itself,

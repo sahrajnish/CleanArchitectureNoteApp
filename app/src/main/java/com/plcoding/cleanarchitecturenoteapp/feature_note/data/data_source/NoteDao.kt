@@ -2,6 +2,7 @@ package com.plcoding.cleanarchitecturenoteapp.feature_note.data.data_source
 
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -21,7 +22,7 @@ interface NoteDao {
     // It's a "suspend" function, which means it's designed to work with coroutines and can be paused.
     // It returns the Note if found, or null if the note with the given id doesn't exist.
     @Query("SELECT * FROM note WHERE id = :id")
-    suspend fun getNoteById(id: Int): Note?
+    suspend fun getNoteById(id: Int):  Note?
 
     // This function inserts a new note into the database.
     // If a note with the same ID already exists, it will be replaced (onConflict = REPLACE).
